@@ -5,32 +5,19 @@ int* twoSum(int* nums, int numsSize, int target, int* returnSize){
     
     unsigned int sum = 0;    
     *returnSize = 2;
-    int* asd = (int*)malloc(*returnSize * sizeof(int));
-        
-    
-    // for (unsigned int i = 0; i<numsSize; i++){
-    //     printf("numbers = %d\n", nums[i]);
-    // }
-    // printf("----\n");
-    // printf("numsSize = %d\n", numsSize);
-    // printf("target = %d\n", target);
-    // printf("returnSize = %d\n", *returnSize);
-    
+    int* results = (int*)malloc(*returnSize * sizeof(int));        
+
     for (int i = 0; i < numsSize; i++){
-        for (int j = i + 1; j < numsSize; j++){
-            // printf("i = %d, j = %d\n", i, j);
-            sum = nums[i] + nums[j];             
-            // printf("sum = %d\n", sum);
+        for (int j = i + 1; j < numsSize; j++){            
+            sum = nums[i] + nums[j];                         
             if (sum == target){
-                asd[0] = i;
-                asd[1] = j;
+                results[0] = i;
+                results[1] = j;
                 goto targetOK;
             }
         }        
     }
     
-targetOK:
-    // printf("sum = %d\n", sum);
-    // printf("[%d,%d]", result[0], result[1]);
-    return asd;
+targetOK:    
+    return results;
 }
